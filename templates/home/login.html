@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'login1.css' %}">
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <h2>Expense Tracker</h2>
+        <p class="subtitle">Login to your account</p>
+
+      <form action="/handlelogin/" method="post">
+    {% csrf_token %}
+
+    <div class="input-group">
+        <input type="text" name="loginuname" placeholder=" " required>
+        <label>Username</label>
+    </div>
+
+    <div class="input-group">
+        <input type="password" name="loginpassword1" placeholder=" " required>
+        <label>Password</label>
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+
+        <div class="extra-links">
+            <a href="/register">Create Account</a>
+            <a href="/reset_password">Forgot Password?</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock body %}
